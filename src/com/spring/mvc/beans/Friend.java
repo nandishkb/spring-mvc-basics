@@ -1,5 +1,10 @@
 package com.spring.mvc.beans;
 
+/**
+ * This is a bean class
+ * @author nandishkb
+ *
+ */
 public class Friend {
 
 	private int id;
