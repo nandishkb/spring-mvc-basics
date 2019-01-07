@@ -79,4 +79,23 @@ public class FriendDao {
 		
 	}
 
+	public Friend getFriendById(int id) {
+		Session session = null;
+		try {
+			session = sessionFactory.getCurrentSession();
+		} catch (HibernateException e) {
+			session = sessionFactory.openSession();
+		}
+		
+		FriendEntity friendEntity = session.get(FriendEntity.class, id);
+		session.close();
+		Friend fr = new Friend();
+		if (friendEntity != null) {
+			fr.setFriendName(friendEntity.getFriendName());
+			fr.setId(friendEntity.getId());
+			fr.setLocation(friendEntity.getLocation());
+		}
+		return fr;
+	}
+
 }

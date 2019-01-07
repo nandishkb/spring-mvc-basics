@@ -44,7 +44,11 @@ public class WelcomeController {
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public ModelAndView addMethod() {
 		String message = "Add New Record !!!";
-		return new ModelAndView("addPage", "msg", message);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("command", new Friend());
+		mv.addObject("msg", message);
+		mv.setViewName("addPage");
+		return mv;
 	}
 	
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
@@ -71,6 +75,18 @@ public class WelcomeController {
 	public ModelAndView delete(@RequestParam("id") int id) {
 		friendService.deleteFriend(id);
 		return listMethod();
+	}
+	
+	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	public ModelAndView update(@RequestParam("id") int id) {
+		System.out.println("WelcomeController.update() id = "+id);
+		Friend friend = friendService.getFriendById(id);
+		String message = "Update Record !!!";
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("command", friend);
+		mv.addObject("msg", message);
+		mv.setViewName("addPage");
+		return mv;
 	}
 
 }

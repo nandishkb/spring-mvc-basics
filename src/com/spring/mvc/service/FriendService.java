@@ -27,4 +27,8 @@ public class FriendService {
 		friendDao.deleteFriend(id);
 	}
 
+	public Friend getFriendById(int id) {
+		return friendDao.getFriendById(id);
+	}
+
 }

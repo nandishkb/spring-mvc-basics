@@ -12,7 +12,10 @@ public class Friend {
 	private int id;
 	private String friendName;
 	private String location;
-
+	
+	public Friend() {
+	}
+	
 //	public Friend(FriendEntity fr) {
 //		this.id = fr.getId();
 //		this.friendName = fr.getFriendName();

@@ -15,14 +15,19 @@ ${msg}
 				<th>ID</th>
 				<th>Name</th>
 				<th>Location</th>
-				<th>Action</th>
+				<th colspan="2">Actions</th>
 			</tr>
 			<c:forEach items="${friends}" var="friend">
 			 <tr>
 			 	<td><c:out value="${friend.id}"></c:out></td>
 			 	<td><c:out value="${friend.friendName}"></c:out></td>
 			 	<td><c:out value="${friend.location}"></c:out></td>
-			 	<td><a href="delete?id=${friend.id}">Delete</a></td>
+			 	<td>
+			 		<a href="delete?id=${friend.id}">Delete</a> 
+			 	</td>
+			 	<td>
+			 		<a href="update?id=${friend.id}">Update</a>
+			 	</td>
 			 </tr>
 			</c:forEach>
 		</table>
