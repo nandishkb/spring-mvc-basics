@@ -8,5 +8,6 @@
 </head>
 <body>
 ${msg}
+<a href="">Home</a>
 </body>
 </html>
